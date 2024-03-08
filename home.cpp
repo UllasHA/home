@@ -17,7 +17,7 @@ struct Device {
     Device(const std::string& n) : name(n), state(false) {}
 };
 
-void handleClient(int clientSocket, std::map<std::string, Device>& devices) {
+void Server::handleClient(int clientSocket, std::map<std::string, Device>& devices) {
     char buffer[BUFFER_SIZE];
     int bytesRead;
 
@@ -64,7 +64,9 @@ void handleClient(int clientSocket, std::map<std::string, Device>& devices) {
     close(clientSocket);
 }
 
-int main() {
+//int main() {
+class Server
+{
     int serverSocket, clientSocket;
     struct sockaddr_in serverAddr, clientAddr;
     socklen_t clientAddrLen = sizeof(clientAddr);
@@ -119,5 +121,10 @@ int main() {
     // Close server socket
     close(serverSocket);
 
+    //return 0;
+};
+int main()
+{
+    Server s; 
     return 0;
 }
